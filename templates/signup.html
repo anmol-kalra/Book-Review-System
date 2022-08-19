@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Flights
+{% endblock %}
+
+{% block body %}
+    <h1>coming soon to singup</h1>
+    <form action="{{ url_for('rsubmit') }}" method="post">
+
+            <div class="form-group">
+                <input class="form-control" name="userid" placeholder="Userid" type="text" required>
+            </div>
+
+            <div class="form-group">
+                    <input class="form-control" name="password" placeholder="password" type="password" required>
+                </div>
+        
+    
+            <div class="form-group">
+                <button class="btn btn-primary">Singup</button>
+            </div>
+    
+        </form>
+   
+{% endblock %}

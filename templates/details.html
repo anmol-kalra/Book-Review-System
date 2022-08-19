@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block heading %}Book list{% endblock %}
+
+{% block body %}
+
+<h1>Book details</h1>
+<table class="table table-striped">
+        <thead>
+            <th scope="col">Isbn</th>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Year</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ flight.isbn }}</td>
+                <td>{{ flight.title }}</td>
+                <td>{{ flight.author }}</td>
+                <td>{{ flight.year }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+<ul>
+        {% for note in notes %}
+        <li>{{note}}</li>
+    
+        {% endfor %}   
+</ul>
+
+
+<h1>rating:{{rating}}</h1>
+
+<form action="{{url_for('sbook',book_id=book_id)}}" method="post">
+
+    <textarea rows="10" cols="100" placeholder="Write your Review" name="review">
+    </textarea>
+    
+    <input type="number" name="user">
+
+     <button>Submit</button>
+</form>
+
+
+<div>
+    <h1>{{flight.userid}}</h1> Submitted reviewd :
+         {{review}}
+</div>
+
+<h1>On Goodread this book has received:</h1>
+<h6>average rating = {{res["books"][0]["average_rating"]}} </h6>
+<h6>rating  count= {{res["books"][0]["ratings_count"]}} </h6>
+
+
+
+
+
+{% endblock %}
